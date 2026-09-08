@@ -1,0 +1,22 @@
+=== UMBCoin (UMBC) - Semana 1 ===
+
+SHA-256("UMB") = 898546e878a639f0efbeb76d921c3a4d5156218ca69fa5d06a4237e117c94d31
+SHA-256("UMB.") = 7b9c935501c203572f3033ddd945df71bfa31125f43e79f539597250ac2d6557
+
+Bloques en la cadena: 6
+  Block(index=0, hash=25e1259d7f55bf84..., prev=0000000000000000...)
+  Block(index=1, hash=490dc0e786438b3a..., prev=25e1259d7f55bf84...)
+  Block(index=2, hash=8af0f58d991459c7..., prev=490dc0e786438b3a...)
+  Block(index=3, hash=2cbe2f179962b960..., prev=8af0f58d991459c7...)
+  Block(index=4, hash=6e7eeae0986a12dd..., prev=2cbe2f179962b960...)
+  Block(index=5, hash=4d8ec78be66e80eb..., prev=6e7eeae0986a12dd...)
+
+ANTES de manipular -> valida=True (Cadena valida)
+
+>> Alterando el monto del bloque 3 (50 -> 999999)...
+DESPUES de manipular -> valida=False (Bloque 3: el hash almacenado no coincide con el recalculado)
+
+>> El atacante recalcula el hash del bloque 3 para disimular...
+Sigue invalida -> valida=False (Bloque 4: previous_hash no apunta al hash real del bloque 3)
+
+OK: is_chain_valid() detecta la manipulacion en ambos casos.
